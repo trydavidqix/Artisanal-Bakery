@@ -89,12 +89,6 @@ The website is fully responsive and adapts to the following breakpoints:
 
 ## 🎨 Color Palette
 
-<div align="center">
-  <img src="https://via.placeholder.com/50/e67e22/000000?text=+" alt="Primary Color">
-  <img src="https://via.placeholder.com/50/d35400/000000?text=+" alt="Secondary Color">
-  <img src="https://via.placeholder.com/50/333333/ffffff?text=+" alt="Text Color">
-</div>
-
 - Primary: `#e67e22`
 - Secondary: `#d35400`
 - Text: `#333333`
