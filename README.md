@@ -1,13 +1,10 @@
 # 🥖 Pão com Amor - Artisanal Bakery
 
 <div align="center">
-  <video width="100%" autoplay loop muted playsinline>
-    <source src="assets/img/large.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <img src="assets/img/pao1.jpg" alt="Bakery Preview" width="100%">
 </div>
 
-[![Product Preview](assets/img/pao1.jpg)](assets/img/large.mp4)
+[![Watch the video](assets/img/pao1.jpg)](assets/img/large.mp4)
 *Click on the image to watch the full video*
 
 ## 📝 Description
