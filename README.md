@@ -1,6 +1,9 @@
 # 🥖 Pão com Amor - Artisanal Bakery
 
-![Watch the video](assets/img/large.mp4)
+<div align="center">
+  <img src="assets/img/pao1.jpg" alt="Bakery Preview" width="100%">
+  <p><em>Click on the image to watch our bakery video</em></p>
+</div>
 
 ## 📝 Description
 Institutional website for the artisanal bakery "Pão com Amor", developed with pure HTML, CSS, and JavaScript. The project features a modern and responsive design, focused on user experience and artisanal product presentation.
@@ -18,11 +21,12 @@ Institutional website for the artisanal bakery "Pão com Amor", developed with p
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Font Awesome (icons)
-- Google Fonts (Poppins)
+<div align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white" alt="Font Awesome">
+</div>
 
 ## 📚 Project Structure
 ```
@@ -85,6 +89,12 @@ The website is fully responsive and adapts to the following breakpoints:
 
 ## 🎨 Color Palette
 
+<div align="center">
+  <img src="https://via.placeholder.com/50/e67e22/000000?text=+" alt="Primary Color">
+  <img src="https://via.placeholder.com/50/d35400/000000?text=+" alt="Secondary Color">
+  <img src="https://via.placeholder.com/50/333333/ffffff?text=+" alt="Text Color">
+</div>
+
 - Primary: `#e67e22`
 - Secondary: `#d35400`
 - Text: `#333333`
@@ -99,4 +109,6 @@ Developed by [Your Name]
 
 ---
 
-⭐ If you like this project, please give it a star!
+<div align="center">
+  <h3>⭐ If you like this project, please give it a star!</h3>
+</div>
