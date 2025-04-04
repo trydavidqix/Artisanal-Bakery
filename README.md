@@ -10,11 +10,8 @@
 [![Product Preview](assets/img/pao1.jpg)](assets/img/large.mp4)
 *Click na imagem para ver o vídeo completo*
 
-## 📝 Description
-Institutional website for an artisanal bakery, developed with pure HTML, CSS, and JavaScript. The project features a modern and responsive design, focused on user experience and product presentation.
-
 ## 📝 Descrição
-Site institucional para uma padaria artesanal, desenvolvido com HTML, CSS e JavaScript puro. O projeto apresenta um design moderno e responsivo, focado na experiência do usuário e na apresentação dos produtos.
+Site institucional para a padaria artesanal "Pão com Amor", desenvolvido com HTML, CSS e JavaScript puro. O projeto apresenta um design moderno e responsivo, focado na experiência do usuário e na apresentação dos produtos artesanais.
 
 ## ✨ Funcionalidades
 
@@ -36,6 +33,7 @@ Site institucional para uma padaria artesanal, desenvolvido com HTML, CSS e Java
 - Google Fonts (Poppins)
 
 ## 📚 Estrutura do Projeto
+```
 padaria/
 ├── assets/
 │ ├── css/
@@ -51,6 +49,7 @@ padaria/
 │ └── large.mp4
 ├── index.html
 └── README.md
+```
 
 ## 📱 Responsividade
 
@@ -97,21 +96,10 @@ O site é totalmente responsivo e se adapta aos seguintes breakpoints:
 - Primária: `#e67e22`
 - Secundária: `#d35400`
 - Texto: `#333333`
-- Background: `#f9f9f9`
-- Branco: `#ffffff`
-
-## 🔧 Manutenção
-
-Para manter o site:
-
-1. Atualize as imagens em `assets/img/`
-2. Modifique os textos em `index.html`
-3. Ajuste estilos em `assets/css/styles.css`
-4. Customize funcionalidades em `assets/js/script.js`
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 👥 Autor
 
