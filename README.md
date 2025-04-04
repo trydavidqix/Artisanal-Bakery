@@ -1,11 +1,6 @@
 # 🥖 Pão com Amor - Artisanal Bakery
 
-<div align="center">
-  <img src="assets/img/pao1.jpg" alt="Bakery Preview" width="100%">
-</div>
-
-[![Watch the video](assets/img/pao1.jpg)](assets/img/large.mp4)
-*Click on the image to watch the full video*
+![Watch the video](assets/img/large.mp4)
 
 ## 📝 Description
 Institutional website for the artisanal bakery "Pão com Amor", developed with pure HTML, CSS, and JavaScript. The project features a modern and responsive design, focused on user experience and artisanal product presentation.
