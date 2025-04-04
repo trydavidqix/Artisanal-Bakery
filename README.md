@@ -8,33 +8,33 @@
 </div>
 
 [![Product Preview](assets/img/pao1.jpg)](assets/img/large.mp4)
-*Click na imagem para ver o vídeo completo*
+*Click on the image to watch the full video*
 
-## 📝 Descrição
-Site institucional para a padaria artesanal "Pão com Amor", desenvolvido com HTML, CSS e JavaScript puro. O projeto apresenta um design moderno e responsivo, focado na experiência do usuário e na apresentação dos produtos artesanais.
+## 📝 Description
+Institutional website for the artisanal bakery "Pão com Amor", developed with pure HTML, CSS, and JavaScript. The project features a modern and responsive design, focused on user experience and artisanal product presentation.
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🎥 Vídeo de fundo na seção hero
-- 📱 Menu mobile responsivo
-- 🖼️ Galeria de produtos com slider
-- 👥 Seção de equipe com cards interativos
-- 📨 Formulário de contato funcional
-- ⚡ Animações suaves de scroll
-- 🔄 Loading screen personalizado
-- 🎨 Design totalmente responsivo
+- 🎥 Background video in hero section
+- 📱 Responsive mobile menu
+- 🖼️ Product gallery with slider
+- 👥 Team section with interactive cards
+- 📨 Functional contact form
+- ⚡ Smooth scroll animations
+- 🔄 Custom loading screen
+- 🎨 Fully responsive design
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript (ES6+)
-- Font Awesome (ícones)
+- Font Awesome (icons)
 - Google Fonts (Poppins)
 
-## 📚 Estrutura do Projeto
+## 📚 Project Structure
 ```
-padaria/
+bakery/
 ├── assets/
 │ ├── css/
 │ │ └── styles.css
@@ -51,60 +51,60 @@ padaria/
 └── README.md
 ```
 
-## 📱 Responsividade
+## 📱 Responsiveness
 
-O site é totalmente responsivo e se adapta aos seguintes breakpoints:
+The website is fully responsive and adapts to the following breakpoints:
 
 - 📱 Mobile: < 768px
 - 📱 Tablet: 768px - 1024px
 - 💻 Desktop: > 1024px
 
-## ✨ Seções do Site
+## ✨ Website Sections
 
 1. **Home**
-   - Vídeo de fundo
-   - Chamada principal
-   - Botão CTA
+   - Background video
+   - Main call-to-action
+   - CTA button
 
-2. **Sobre Nós**
-   - História da padaria
-   - Diferenciais
-   - Valores
+2. **About Us**
+   - Bakery history
+   - Differentiators
+   - Values
 
-3. **Produtos**
-   - Grid de produtos
-   - Preços
-   - Descrições
+3. **Products**
+   - Product grid
+   - Prices
+   - Descriptions
 
-4. **Galeria**
-   - Slider interativo
-   - Navegação por dots
+4. **Gallery**
+   - Interactive slider
+   - Dot navigation
    - Touch support
 
-5. **Nossa Equipe**
-   - Cards dos membros
-   - Links para redes sociais
+5. **Our Team**
+   - Member cards
+   - Social media links
    - Hover effects
 
-6. **Contato**
-   - Formulário de contato
-   - Informações de contato
-   - Localização
+6. **Contact**
+   - Contact form
+   - Contact information
+   - Location
 
-## 🎨 Paleta de Cores
+## 🎨 Color Palette
 
-- Primária: `#e67e22`
-- Secundária: `#d35400`
-- Texto: `#333333`
+- Primary: `#e67e22`
+- Secondary: `#d35400`
+- Text: `#333333`
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 👥 Autor
+## 👥 Author
 
-Desenvolvido por [Seu Nome]
+Developed by [Your Name]
 
 ---
 
-⭐ Se você gostou deste projeto, por favor, dê uma estrela!
+⭐ If you like this project, please give it a star!
