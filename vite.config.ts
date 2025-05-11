@@ -11,6 +11,9 @@ export default defineConfig({
       jsxImportSource: 'react',
     })
   ],
+  
+  // Ensure static assets are correctly handled
+  publicDir: 'public',
 
   resolve: {
     alias: {
