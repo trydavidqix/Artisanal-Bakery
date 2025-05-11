@@ -121,7 +121,7 @@ Este projeto segue princípios de arquitetura moderna de frontend:
 ### Capturas de Tela do Aplicativo
 
 <div align="center">
-  <img src="./src/images/cel.webp" width="200" alt="Tela no Celular" />
+  <img src="./src/images/cel.webp" width="400" alt="Tela no Celular" />
   <img src="./src/images/tablet.webp" width="400" alt="Tela no Tablet" />
 </div>
 
