@@ -4,8 +4,8 @@ import LordIcon from "./LordIcon";
 const Footer: React.FC = () => {
   return (
     <footer className="py-8 xs:py-10 sm:py-12 md:py-16 mt-6 sm:mt-10 text-center text-[var(--color-medium-600)] border-t border-[var(--border-color)]">
+      {" "}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Logo da padaria no footer */}
         <div className="mb-6 xs:mb-8 sm:mb-10 flex justify-center">
           <div className="group">
             <div className="flex items-center">

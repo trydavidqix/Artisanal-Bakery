@@ -153,7 +153,7 @@ const Contact = () => {
                   <div className="flex space-x-2 xs:space-x-3 sm:space-x-4">
                     <div
                       className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-accent)]/10 
-                      flex items-center justify-center text-[var(--color-accent)] hover:bg-[var(--color-accent)]/20 transition-colors"
+                      flex items-center justify-center text-[var(--color-accent)] "
                     >
                       <LordIcon
                         src="https://cdn.lordicon.com/lplofcfe.json"
@@ -167,7 +167,7 @@ const Contact = () => {
                     </div>
                     <div
                       className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-accent)]/10 
-                      flex items-center justify-center text-[var(--color-accent)] hover:bg-[var(--color-accent)]/20 transition-colors"
+                      flex items-center justify-center text-[var(--color-accent)] "
                     >
                       <LordIcon
                         src="https://cdn.lordicon.com/zmvgugmh.json"
@@ -182,7 +182,7 @@ const Contact = () => {
                     </div>
                     <div
                       className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--color-accent)]/10 
-                      flex items-center justify-center text-[var(--color-accent)] hover:bg-[var(--color-accent)]/20 transition-colors"
+                      flex items-center justify-center text-[var(--color-accent)] "
                     >
                       <LordIcon
                         src="https://cdn.lordicon.com/yizwahhw.json"

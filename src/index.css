@@ -1,23 +1,19 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap");
-/* Adding Playfair Display font for more elegant headlines */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 @import "./styles/colors.css";
 @import "./styles/responsive.css";
-
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--color-dark-800) var(--bg-primary);
 }
-
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
-
 h1,
 h2,
 h3,
@@ -25,31 +21,23 @@ h4,
 h5 {
   font-family: "Playfair Display", serif;
 }
-
 code,
 .font-mono {
   font-family: "Fira Code", monospace;
 }
-
-/* Scrollbar personalizado */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--color-dark-800);
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
 }
-
-/* Wave effect for hero section */
 .clip-path-wave {
   clip-path: polygon(
     0% 0%,
@@ -84,12 +72,9 @@ code,
     100% 74%
   );
 }
-
-/* Decorative elements for bakery */
 .flour-scatter {
   position: relative;
 }
-
 .flour-scatter::before,
 .flour-scatter::after {
   content: "";
@@ -100,24 +85,19 @@ code,
   background-color: var(--color-light-200);
   opacity: 0.6;
 }
-
 .flour-scatter::before {
   top: 10%;
   left: 15%;
 }
-
 .flour-scatter::after {
   bottom: 20%;
   right: 10%;
 }
-
-/* Animações */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);

@@ -8,9 +8,9 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LordIcon from "./components/LordIcon";
+import SmoothLink from "./components/SmoothLink";
 import heroImage from "./images/free-photo-of-croissant-com-nutella-e-morangos.webp";
 import { useResponsive } from "./hooks/useResponsive";
-
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Testimonials from "./pages/Testimonials";
@@ -20,47 +20,42 @@ export const Hero = memo(() => {
   const { isMobile, isTablet } = useResponsive();
 
   return (
-    <section className="relative overflow-hidden pt-16 min-h-[85vh] xs:min-h-[90vh] sm:min-h-screen">
-      {/* Background decorativo com responsividade */}
+    <section
+      id="home"
+      className="relative overflow-hidden pt-16 min-h-[85vh] xs:min-h-[90vh] sm:min-h-screen"
+    >
       <div className="absolute inset-0 bg-[url('/images/bread-pattern-bg.png')] opacity-5 z-0"></div>
-
       <div className="container mx-auto w-full px-3 xs:px-4 sm:px-6 pt-12 xs:pt-16 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 flex flex-col lg:flex-row items-center justify-between relative z-10">
-        {/* Conteúdo textual responsivo */}
         <div className="w-full lg:w-1/2 mb-8 xs:mb-10 sm:mb-12 lg:mb-0 animate-fade-in text-center lg:text-left">
           <div className="inline-block px-3 xs:px-4 sm:px-6 py-1 sm:py-2 bg-[var(--color-accent-transparent)] rounded-full mb-2 xs:mb-3 sm:mb-4">
             <span className="text-[var(--color-accent)] font-medium text-xs xs:text-xs sm:text-sm">
               Desde 2015
             </span>
           </div>
-
           <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 xs:mb-4 sm:mb-5 leading-tight">
             <span className="text-[var(--color-accent)]">Artesania</span> em
             <br className="hidden xs:block" /> cada pão que{" "}
             <br className="hidden xs:block" />
             assamos
           </h1>
-
           <p className="text-[var(--color-medium-500)] max-w-lg mx-auto lg:mx-0 mb-5 xs:mb-6 sm:mb-8 text-xs xs:text-sm sm:text-base md:text-lg">
             Receitas tradicionais preparadas com ingredientes selecionados e o
             carinho artesanal que você só encontra na Artisanal Bakery.
           </p>
-
           <div className="flex flex-wrap gap-2 xs:gap-3 sm:gap-4 justify-center lg:justify-start">
-            <a
-              href="#products"
+            <SmoothLink
+              to="#products"
               className="inline-block py-2 xs:py-2.5 sm:py-3 px-4 xs:px-5 sm:px-6 bg-[var(--color-accent)] text-white font-medium rounded-full hover:shadow-lg transition-all duration-300 text-xs xs:text-sm sm:text-base"
             >
               Ver produtos
-            </a>
-            <a
-              href="#about"
+            </SmoothLink>
+            <SmoothLink
+              to="#about"
               className="inline-block py-2 xs:py-2.5 sm:py-3 px-4 xs:px-5 sm:px-6 border border-[var(--border-color)] text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--color-accent-transparent)] transition-colors duration-300 text-xs xs:text-sm sm:text-base"
             >
               Nossa história
-            </a>
+            </SmoothLink>
           </div>
-
-          {/* Estatísticas responsivas */}
           <div className="mt-6 xs:mt-8 sm:mt-10 flex gap-3 xs:gap-4 sm:gap-6 md:gap-8 justify-center lg:justify-start">
             <div>
               <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-accent)]">
@@ -88,17 +83,12 @@ export const Hero = memo(() => {
             </div>
           </div>
         </div>
-
-        {/* Imagem destacada com responsividade aprimorada */}
         <div className="lg:w-1/2 relative animate-fade-in">
           <div
             className="relative mx-auto w-[220px] h-[220px] xs:w-[260px] xs:h-[260px] sm:w-[300px] sm:h-[300px] 
             md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] xl:w-[480px] xl:h-[480px]"
           >
-            {/* Círculo decorativo */}
             <div className="absolute inset-0 rounded-full bg-[var(--color-accent-transparent)]"></div>
-
-            {/* Imagem principal */}
             <div className="absolute inset-3 xs:inset-4 rounded-full overflow-hidden bg-[var(--color-accent)]/5 flex items-center justify-center">
               <img
                 src={heroImage}
@@ -107,8 +97,6 @@ export const Hero = memo(() => {
                 loading="eager"
               />
             </div>
-
-            {/* Decorações flutuantes responsivas */}
             <div
               className={`absolute -top-3 xs:-top-4 sm:-top-6 md:-top-8 -left-3 xs:-left-4 sm:-left-6 md:-left-8
               w-12 xs:w-14 sm:w-16 md:w-20 h-12 xs:h-14 sm:h-16 md:h-20 
@@ -125,7 +113,6 @@ export const Hero = memo(() => {
                 size={isMobile ? 20 : isTablet ? 28 : 36}
               />
             </div>
-
             <div
               className={`absolute top-1/2 -right-3 xs:-right-4 sm:-right-6 md:-right-8
               w-10 xs:w-12 sm:w-14 md:w-18 h-10 xs:h-12 sm:h-14 md:h-18
@@ -142,7 +129,6 @@ export const Hero = memo(() => {
                 size={isMobile ? 18 : isTablet ? 24 : 30}
               />
             </div>
-
             <div
               className={`absolute -bottom-2 sm:-bottom-4 left-1/4
               w-8 xs:w-9 sm:w-10 md:w-14 h-8 xs:h-9 sm:h-10 md:h-14
@@ -162,8 +148,6 @@ export const Hero = memo(() => {
           </div>
         </div>
       </div>
-
-      {/* Wave decoration responsiva */}
       <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 md:h-24 overflow-hidden">
         <svg
           viewBox="0 0 500 150"
@@ -179,7 +163,6 @@ export const Hero = memo(() => {
     </section>
   );
 });
-
 const AnimationStyles = memo(() => (
   <style>{`
     @keyframes pathDraw {
@@ -215,7 +198,6 @@ const AnimationStyles = memo(() => (
     }
   `}</style>
 ));
-
 const App = () => {
   const [, setIsPageLoaded] = useState(false);
   const animateElements = useCallback(() => {
@@ -248,11 +230,9 @@ const App = () => {
       document.getElementsByTagName("head")[0].removeChild(meta);
     };
   }, [animateElements]);
-
   return (
     <Router>
       <div className="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen font-sans transition-colors duration-300">
-        {/* Navegação principal */}
         <Header />
         <main className="mx-auto">
           <Routes>
@@ -276,10 +256,7 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </main>
-
         <Footer />
-
-        {/* Estilo adicional para animações */}
         <AnimationStyles />
       </div>
     </Router>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useMemo, memo } from "react";
 import { motion } from "framer-motion";
 import { useResponsive } from "../hooks/useResponsive";
+import SmoothLink from "./SmoothLink";
 
 interface NavProps {
   className?: string;
   isMobile?: boolean;
   onItemClick?: () => void;
-  animation?: any; // Para aceitar variantes de animação
+  animation?: any;
 }
 
 const Nav: React.FC<NavProps> = ({
@@ -15,33 +16,43 @@ const Nav: React.FC<NavProps> = ({
   onItemClick,
   animation,
 }) => {
-  const [activeSection, setActiveSection] = useState("home"); // Obtendo dados responsivos do hook
+  const [activeSection, setActiveSection] = useState("home");
   const { screenWidth } = useResponsive();
-
   const navItems = useMemo(
     () => [
       { name: "Home", section: "home" },
       { name: "Nossa História", section: "about" },
       { name: "Produtos", section: "products" },
+      { name: "Depoimentos", section: "testimonials" },
       { name: "Contato", section: "contact" },
     ],
     []
   );
-
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
-
-      for (const item of navItems) {
+      if (
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - 10
+      ) {
+        setActiveSection(navItems[navItems.length - 1].section);
+        return;
+      }
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const item = navItems[i];
         const element = document.getElementById(item.section);
+
         if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          const rect = element.getBoundingClientRect();
+          const headerOffset = 100;
+
+          if (rect.top <= headerOffset && rect.bottom > headerOffset) {
             setActiveSection(item.section);
-            break;
+            return;
           }
         }
+      }
+      if (navItems.length > 0) {
+        setActiveSection(navItems[0].section);
       }
     };
 
@@ -55,6 +66,7 @@ const Nav: React.FC<NavProps> = ({
         ticking = true;
       }
     };
+    setTimeout(handleScroll, 100);
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -89,9 +101,13 @@ const Nav: React.FC<NavProps> = ({
               variants={animation}
               className="relative"
             >
-              <a
-                href={`#${item.section}`}
-                onClick={onItemClick}
+              {" "}
+              <SmoothLink
+                to={`#${item.section}`}
+                onClick={() => {
+                  setActiveSection(item.section);
+                  if (onItemClick) onItemClick();
+                }}
                 className={`py-2 px-1 ${getFontSize()} font-medium transition-colors duration-300 block ${
                   isMobile ? "text-xl sm:text-2xl mb-1" : ""
                 } ${
@@ -109,13 +125,17 @@ const Nav: React.FC<NavProps> = ({
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 )}
-              </a>
+              </SmoothLink>
             </motion.div>
           ) : (
             <div key={item.section} className="relative">
-              <a
-                href={`#${item.section}`}
-                onClick={onItemClick}
+              {" "}
+              <SmoothLink
+                to={`#${item.section}`}
+                onClick={() => {
+                  setActiveSection(item.section);
+                  if (onItemClick) onItemClick();
+                }}
                 className={`py-2 px-1 ${getFontSize()} font-medium transition-colors duration-300 block ${
                   isMobile ? "text-xl sm:text-2xl mb-1" : ""
                 } ${
@@ -128,7 +148,7 @@ const Nav: React.FC<NavProps> = ({
                 {activeSection === item.section && !isMobile && (
                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--color-accent)]" />
                 )}
-              </a>
+              </SmoothLink>
             </div>
           )
         )}

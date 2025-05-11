@@ -1,6 +1,7 @@
 import { memo } from "react";
 import LordIcon from "../components/LordIcon";
 import { useResponsive } from "../hooks/useResponsive";
+import chefImage from "../images/cook-196932_1280.webp";
 
 const bakeryHighlights = [
   {
@@ -84,8 +85,9 @@ const About = () => {
             <div className="lg:w-1/2 relative w-full mb-6 xs:mb-8 lg:mb-0 flex justify-center">
               {/* Imagem do Chef */}{" "}
               <div className="relative">
+                {" "}
                 <img
-                  src="../src/images/cook-196932_1280.webp"
+                  src={chefImage}
                   alt="Chef com pão artesanal"
                   className="rounded-lg xs:rounded-xl md:rounded-2xl object-cover 
                     max-h-[220px] xs:max-h-[260px] sm:max-h-[320px] md:max-h-[370px] lg:max-h-[420px] shadow-md"

@@ -24,10 +24,10 @@ const LordIcon: React.FC<LordIconProps> = ({
   src,
   trigger = "hover",
   state,
-  colors = { primary: "#dfdfdf", secondary: "#000000" }, // Valores padrão ajustáveis
-  size = 32, // Tamanho ajustável
-  delay = 0, // Delay ajustável
-  className = "", // Classe CSS ajustável
+  colors = { primary: "#dfdfdf", secondary: "#000000" },
+  size = 32,
+  delay = 0,
+  className = "",
 }) => {
   const iconRef = useRef<HTMLElement>(null);
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
@@ -87,7 +87,7 @@ const LordIcon: React.FC<LordIconProps> = ({
       src={src}
       trigger={trigger}
       colors={colorString}
-      style={{ width: `${size}px`, height: `${size}px` }} // Tamanho configurável
+      style={{ width: `${size}px`, height: `${size}px` }}
       className={className}
     ></lord-icon>
   );

@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 
   const getHeaderClass = () => {
     if (isMobile && isMenuOpen) {
-      return "bg-white"; // fundo branco liso no mobile com menu aberto
+      return "bg-white";
     }
 
     if (scrolled || isMenuOpen) {
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto w-full px-3 sm:px-4 md:px-6">
         <div className="flex items-center justify-between relative w-full">
-          {/* Logo */}
+          {" "}
           <div className="flex items-center z-50">
             <a
               href="#home"
@@ -78,9 +78,8 @@ const Header: React.FC = () => {
               className="py-2 px-4 sm:px-6 bg-[var(--color-accent)] text-white text-sm sm:text-base rounded-full hover:shadow-lg transition-all duration-300 flex items-center"
             >
               <span>Encomendar</span>
-            </a>
+            </a>{" "}
           </div>{" "}
-          {/* Botão mobile */}
           <div className="lg:hidden flex items-center">
             <button
               onClick={toggleMenu}
@@ -111,10 +110,9 @@ const Header: React.FC = () => {
                     secondary: "#000000",
                   }}
                 />
-              )}
+              )}{" "}
             </button>
           </div>
-          {/* Menu Mobile */}
           <MobileNavMenu isOpen={isMenuOpen} onClose={closeMenu} />
         </div>
       </div>

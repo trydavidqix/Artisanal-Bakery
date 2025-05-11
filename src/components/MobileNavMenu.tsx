@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import LordIcon from "./LordIcon";
+import SmoothLink from "./SmoothLink";
 
 interface MobileNavMenuProps {
   isOpen: boolean;
@@ -8,8 +8,7 @@ interface MobileNavMenuProps {
 }
 
 export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
-  const containerRef = useRef<HTMLDivElement>(null); // Calculando a altura da tela baseada na API window
-  const screenHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -55,86 +54,79 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
       transition: { type: "spring", stiffness: 300, damping: 24 },
     },
   };
-
   return (
     <motion.div
       ref={containerRef}
-      className="lg:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-start justify-center"
+      className="lg:hidden fixed inset-x-0 bottom-0 top-[56px] sm:top-[64px] z-30 bg-black/50 backdrop-blur-sm flex flex-col items-start justify-start"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      style={{ paddingTop: Math.min(screenHeight * 0.15, 100) }}
+      transition={{ duration: 0.2 }}
     >
       {" "}
       <motion.div
-        className="bg-white shadow-xl p-6 w-[94%] max-w-sm text-center mx-auto rounded-xl relative"
-        initial={{ y: -30, opacity: 0 }}
+        className="bg-white shadow-xl p-6 pt-5 w-full text-center mx-0 rounded-none border-b-2 border-[var(--color-accent)]/20 relative"
+        initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -30, opacity: 0 }}
+        exit={{ y: -10, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
         {" "}
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-30 left-35 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors duration-200"
-          aria-label="Fechar menu"
-        >
-          {" "}
-          <LordIcon
-            src="https://cdn.lordicon.com/yvrdhjfn.json"
-            trigger="in"
-            delay={1500}
-            state="in-reveal"
-            size={24}
-            colors={{
-              primary: "#000000",
-              secondary: "#000000",
-            }}
-          />
-        </button>
         <motion.ul
-          className="space-y-5 text-gray-800"
+          className="space-y-6 text-gray-800 w-full pt-0"
           variants={containerAnimation}
           initial="hidden"
           animate="show"
         >
           <motion.li variants={itemAnimation}>
-            <a
-              href="#home"
+            {" "}
+            <SmoothLink
+              to="#home"
               onClick={onClose}
-              className="block py-2 px-3 text-lg font-medium hover:text-[var(--color-accent)] transition-colors duration-300"
+              className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Início
-            </a>
+            </SmoothLink>
           </motion.li>
           <motion.li variants={itemAnimation}>
-            <a
-              href="#about"
+            {" "}
+            <SmoothLink
+              to="#about"
               onClick={onClose}
-              className="block py-2 px-3 text-lg font-medium hover:text-[var(--color-accent)] transition-colors duration-300"
+              className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Nossa História
-            </a>
+            </SmoothLink>
           </motion.li>
           <motion.li variants={itemAnimation}>
-            <a
-              href="#products"
+            {" "}
+            <SmoothLink
+              to="#products"
               onClick={onClose}
-              className="block py-2 px-3 text-lg font-medium hover:text-[var(--color-accent)] transition-colors duration-300"
+              className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Produtos
-            </a>
-          </motion.li>{" "}
+            </SmoothLink>
+          </motion.li>
           <motion.li variants={itemAnimation}>
-            <a
-              href="#contact"
+            {" "}
+            <SmoothLink
+              to="#testimonials"
               onClick={onClose}
-              className="block py-2 px-3 text-lg font-medium hover:text-[var(--color-accent)] transition-colors duration-300"
+              className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
+            >
+              Depoimentos
+            </SmoothLink>
+          </motion.li>
+          <motion.li variants={itemAnimation}>
+            {" "}
+            <SmoothLink
+              to="#contact"
+              onClick={onClose}
+              className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Contato
-            </a>
+            </SmoothLink>
           </motion.li>
         </motion.ul>
       </motion.div>

@@ -7,7 +7,7 @@ import tortaDeMaca from "../images/Bolos/tortademaca.webp";
 const Home: FC = () => {
   return (
     <div>
-      <section id="home" className="py-16 sm:py-20 md:py-24 animate-fade-in">
+      <section className="py-16 sm:py-20 md:py-24 animate-fade-in">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-16">
             <span className="block w-12 sm:w-16 h-1 bg-[var(--color-accent)] mx-auto mb-3 sm:mb-4"></span>
