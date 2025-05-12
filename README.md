@@ -135,14 +135,6 @@ Contribuições são sempre bem-vindas!
 4. Push para a Branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-### Roadmap de Funcionalidades Futuras
-
-- [ ] Sistema de gerenciamento de pedidos online
-- [ ] Integração com API de pagamento
-- [ ] Área de administração para o proprietário da padaria
-- [ ] Sistema de avaliação de produtos
-- [ ] Modo escuro / Tema claro
-
 ## 📄 Licença
 
 Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
