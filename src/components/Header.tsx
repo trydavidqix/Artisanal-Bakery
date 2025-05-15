@@ -14,14 +14,38 @@ const Header: React.FC = () => {
       setScrolled(window.scrollY > 50);
     };
 
+    // Verificar se as seções estão disponíveis
+    const checkSections = () => {
+      const sections = ["home", "about", "products", "testimonials", "contact"];
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) console.warn(`Seção #${id} não encontrada`);
+      });
+    };
+
+    // Executar verificação após carregamento da página
+    setTimeout(checkSections, 1000);
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    // Quando abrimos o menu, garantimos que o comportamento de rolagem é adequado
+    if (!isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = "";
+  };
 
   const getHeaderClass = () => {
     if (isMobile && isMenuOpen) {

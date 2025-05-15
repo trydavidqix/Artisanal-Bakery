@@ -102,3 +102,13 @@ code,
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Classe para feedback visual durante navegação */
+.link-active {
+  opacity: 0.8 !important;
+  transform: scale(0.98);
+  transition: all 0.15s ease-out !important;
+  color: var(--color-accent) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

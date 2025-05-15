@@ -223,7 +223,8 @@ const Products: React.FC = () => {
   return (
     <section
       id="products"
-      className="py-12 sm:py-20 md:py-24 lg:py-32 animate-fade-in w-full"
+      data-section="products"
+      className="section-products py-12 sm:py-20 md:py-24 lg:py-32 animate-fade-in w-full"
     >
       <div className="w-full max-w-6xl mx-auto px-3 sm:px-6">
         <div className="rounded-2xl sm:rounded-3xl overflow-hidden mb-8 sm:mb-16 md:mb-20 relative">

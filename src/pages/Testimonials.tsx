@@ -6,7 +6,11 @@ import nutricionista from "../images/Testimonials/nutricionista.webp";
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-16 sm:py-24 md:py-32 lg:py-40">
+    <section
+      id="testimonials"
+      data-section="testimonials"
+      className="section-testimonials py-16 sm:py-24 md:py-32 lg:py-40"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 animate-fade-in">
         {/* Seção de Testemunhos com responsividade */}
         <div className="pt-4 sm:pt-8">

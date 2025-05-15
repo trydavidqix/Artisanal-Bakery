@@ -6,7 +6,11 @@ const Contact = () => {
   const { isMobile } = useResponsive();
 
   return (
-    <section id="contact" className="py-10 xs:py-12 sm:py-16 md:py-24 lg:py-32">
+    <section
+      id="contact"
+      data-section="contact"
+      className="section-contact py-10 xs:py-12 sm:py-16 md:py-24 lg:py-32"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
         {/* Título com decoração responsiva */}
         <div className="text-center mb-6 xs:mb-8 sm:mb-12 md:mb-16">

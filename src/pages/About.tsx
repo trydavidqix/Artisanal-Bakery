@@ -66,7 +66,11 @@ const About = () => {
   const { isMobile } = useResponsive();
 
   return (
-    <section id="about" className="py-10 xs:py-12 sm:py-16 md:py-20 lg:py-24">
+    <section
+      id="about"
+      data-section="about"
+      className="section-about py-10 xs:py-12 sm:py-16 md:py-20 lg:py-24"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="animate-fade-in">
           {/* Cabeçalho da seção com decoração e responsividade */}

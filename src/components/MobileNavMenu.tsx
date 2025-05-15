@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import SmoothLink from "./SmoothLink";
 
@@ -9,7 +9,83 @@ interface MobileNavMenuProps {
 
 export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null); // Implementação melhorada para navegação em dispositivos móveis
+  const handleNavigation = useCallback(
+    (sectionId: string) => {
+      console.log(`Navegando para seção #${sectionId} via menu móvel`);
+
+      // Primeiro, fecha o menu imediatamente para melhor experiência no mobile
+      // Fechar o menu antes da rolagem evita problemas de layout
+      onClose();
+      console.log("Menu móvel fechado antes de iniciar a navegação");
+
+      // Pequeno delay para garantir que o menu foi fechado antes da rolagem
+      setTimeout(() => {
+        // Busca o elemento usando vários seletores para ser mais resiliente
+        const targetElement =
+          document.getElementById(sectionId) ||
+          document.querySelector(`section[id="${sectionId}"]`) ||
+          document.querySelector(`[data-section="${sectionId}"]`) ||
+          document.querySelector(`[data-id="${sectionId}"]`);
+
+        if (targetElement) {
+          // Destacar brevemente o elemento para feedback visual
+          const originalOutline = targetElement.style.outline;
+          targetElement.style.outline = "3px solid var(--color-accent)";
+
+          // Garante que o body não tem overflow hidden (que poderia ter sido definido pelo menu)
+          document.body.style.overflow = "";
+          document.body.style.position = "";
+          document.body.style.width = "";
+
+          // Usar abordagem mais robusta de rolagem para mobile
+          const headerOffset = 60;
+          const elementRect = targetElement.getBoundingClientRect();
+          const scrollTarget =
+            elementRect.top + window.pageYOffset - headerOffset;
+
+          // Técnicas de rolagem com três camadas para máxima compatibilidade
+
+          // 1. scrollIntoView (mais suportado em navegadores mobile)
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+
+          // 2. Após pequeno delay, ajuste fino com scrollTo
+          setTimeout(() => {
+            window.scrollTo({
+              top: scrollTarget,
+              behavior: "smooth",
+            });
+          }, 50);
+
+          // 3. Método de backup para Safari no iOS que às vezes ignora behavior: smooth
+          setTimeout(() => {
+            window.scrollTo(0, scrollTarget);
+          }, 100);
+
+          // Restaura a aparência original do elemento após o destaque
+          setTimeout(() => {
+            targetElement.style.outline = originalOutline;
+          }, 1500);
+        } else {
+          console.warn(
+            `Elemento #${sectionId} não encontrado para navegação mobile`
+          );
+          // Tenta fazer debugging dos IDs disponíveis
+          const sections = document.querySelectorAll("section[id]");
+          console.log(
+            `Seções com IDs disponíveis: ${Array.from(sections)
+              .map((s) => s.id)
+              .join(", ")}`
+          );
+        }
+      }, 100);
+    },
+    [onClose]
+  );
+
   useEffect(() => {
     // Handlers separados para mouse e toque para lidar melhor com iPads
     const handleMouseDown = (event: MouseEvent) => {
@@ -21,7 +97,7 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
         onClose();
       }
     };
-    
+
     const handleTouchStart = (event: TouchEvent) => {
       // Precisamos verificar o target do evento de toque de forma diferente
       const target = event.target as Node;
@@ -45,14 +121,22 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
 
     if (isOpen) {
       // Adicionamos eventos com opções específicas para iOS/iPadOS
-      document.addEventListener("mousedown", handleMouseDown, { passive: false });
-      document.addEventListener("touchstart", handleTouchStart, { passive: false });
-      document.addEventListener("click", (e) => {
-        // Redundância para garantir a captura em iPads
-        if (overlayRef.current === e.target) onClose();
-      }, { passive: false });
+      document.addEventListener("mousedown", handleMouseDown, {
+        passive: false,
+      });
+      document.addEventListener("touchstart", handleTouchStart, {
+        passive: false,
+      });
+      document.addEventListener(
+        "click",
+        (e) => {
+          // Redundância para garantir a captura em iPads
+          if (overlayRef.current === e.target) onClose();
+        },
+        { passive: false }
+      );
       document.addEventListener("keydown", handleEscapeKey);
-      
+
       // Fixar a rolagem em iPads também
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
@@ -95,7 +179,10 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
       opacity: 1,
       transition: { type: "spring", stiffness: 300, damping: 24 },
     },
-  };  return (    <motion.div
+  };
+
+  return (
+    <motion.div
       ref={overlayRef}
       className="lg:hidden fixed inset-0 top-[56px] sm:top-[64px] z-30 bg-black/50 backdrop-blur-sm touch-auto"
       role="dialog"
@@ -119,8 +206,8 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
           onClose();
         }
       }}
-      style={{ 
-        WebkitTapHighlightColor: 'transparent', // Remover highlight de toque em iPads
+      style={{
+        WebkitTapHighlightColor: "transparent", // Remover highlight de toque em iPads
       }}
     >
       <motion.div
@@ -146,7 +233,7 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
             {" "}
             <SmoothLink
               to="#home"
-              onClick={onClose}
+              onClick={() => handleNavigation("home")}
               className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Início
@@ -156,7 +243,7 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
             {" "}
             <SmoothLink
               to="#about"
-              onClick={onClose}
+              onClick={() => handleNavigation("about")}
               className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Nossa História
@@ -166,7 +253,7 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
             {" "}
             <SmoothLink
               to="#products"
-              onClick={onClose}
+              onClick={() => handleNavigation("products")}
               className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Produtos
@@ -176,7 +263,7 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
             {" "}
             <SmoothLink
               to="#testimonials"
-              onClick={onClose}
+              onClick={() => handleNavigation("testimonials")}
               className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Depoimentos
@@ -186,7 +273,7 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
             {" "}
             <SmoothLink
               to="#contact"
-              onClick={onClose}
+              onClick={() => handleNavigation("contact")}
               className="block py-3 px-3 text-lg font-medium hover:text-[var(--color-accent)] active:bg-[var(--color-accent)]/10 transition-colors duration-300 w-full"
             >
               Contato
