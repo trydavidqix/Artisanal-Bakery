@@ -3,7 +3,7 @@
 Uma aplicação web responsiva para uma padaria artesanal que apresenta seus produtos artesanais premium, processos únicos e história da marca.
 
 ![Licença MIT](https://img.shields.io/badge/Licença-MIT-green.svg)
-![Atualizado em](https://img.shields.io/badge/Atualizado_em-11_de_maio_2025-blue.svg)
+![Atualizado em](https://img.shields.io/badge/Atualizado_em-15_de_maio_2025-blue.svg)
 ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwind-css&logoColor=white)
