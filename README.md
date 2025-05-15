@@ -16,10 +16,6 @@ Uma aplicação web responsiva para uma padaria artesanal que apresenta seus pro
 - [Como Iniciar](#-como-iniciar)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Capturas de Tela](#-capturas-de-tela)
-- [Aplicativo](#capturas-de-tela-do-aplicativo)
-- [Interface](#interface-da-aplicação)
-- [Produtos em Destaque](#produtos-em-destaque)
-- [Depoimentos](#depoimentos)
 - [Como Contribuir](#-como-contribuir)
 - [Licença](#-licença)
 
@@ -59,6 +55,7 @@ Siga estas instruções para obter uma cópia do projeto funcionando em sua máq
 ### Compatibilidade
 
 O design é totalmente responsivo e otimizado para:
+
 - 📱 Smartphones (iOS e Android)
 - 📲 Tablets
 - 💻 Desktops e laptops
@@ -120,12 +117,10 @@ Este projeto segue princípios de arquitetura moderna de frontend:
 
 ### Capturas de Tela do Aplicativo
 
-<div align="center">
-  <img src="./src/images/cel.webp" width="400" alt="Tela no Celular" />
-  <img src="./src/images/tablet.webp" width="400" alt="Tela no Tablet" />
-</div>
+![Tela no Celular](./src/images/cel.webp)
+![Tela no Tablet](./src/images/tablet.webp)
 
-👥 Como Contribuir
+## 👥 Como Contribuir
 
 Contribuições são sempre bem-vindas!
 
