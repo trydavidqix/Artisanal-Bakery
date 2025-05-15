@@ -8,29 +8,71 @@ interface MobileNavMenuProps {
 }
 
 export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
+  const menuRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    // Handlers separados para mouse e toque para lidar melhor com iPads
+    const handleMouseDown = (event: MouseEvent) => {
       if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
+        overlayRef.current === event.target &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
       ) {
+        onClose();
+      }
+    };
+    
+    const handleTouchStart = (event: TouchEvent) => {
+      // Precisamos verificar o target do evento de toque de forma diferente
+      const target = event.target as Node;
+      if (
+        overlayRef.current &&
+        target === overlayRef.current &&
+        menuRef.current &&
+        !menuRef.current.contains(target)
+      ) {
+        // Prevenimos comportamento padrão para o iPad
+        event.preventDefault();
+        onClose();
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-
+      // Adicionamos eventos com opções específicas para iOS/iPadOS
+      document.addEventListener("mousedown", handleMouseDown, { passive: false });
+      document.addEventListener("touchstart", handleTouchStart, { passive: false });
+      document.addEventListener("click", (e) => {
+        // Redundância para garantir a captura em iPads
+        if (overlayRef.current === e.target) onClose();
+      }, { passive: false });
+      document.addEventListener("keydown", handleEscapeKey);
+      
+      // Fixar a rolagem em iPads também
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("click", (e) => {
+        if (overlayRef.current === e.target) onClose();
+      });
+      document.removeEventListener("keydown", handleEscapeKey);
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     };
   }, [isOpen, onClose]);
 
@@ -53,23 +95,45 @@ export default function MobileNavMenu({ isOpen, onClose }: MobileNavMenuProps) {
       opacity: 1,
       transition: { type: "spring", stiffness: 300, damping: 24 },
     },
-  };
-  return (
-    <motion.div
-      ref={containerRef}
-      className="lg:hidden fixed inset-x-0 bottom-0 top-[56px] sm:top-[64px] z-30 bg-black/50 backdrop-blur-sm flex flex-col items-start justify-start"
+  };  return (    <motion.div
+      ref={overlayRef}
+      className="lg:hidden fixed inset-0 top-[56px] sm:top-[64px] z-30 bg-black/50 backdrop-blur-sm touch-auto"
+      role="dialog"
+      aria-modal="true"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
+      onClick={(e) => {
+        // Se o clique foi diretamente no overlay (fundo), feche o menu
+        if (e.target === e.currentTarget) {
+          e.preventDefault(); // Prevenir comportamento padrão para iPad
+          e.stopPropagation(); // Parar propagação
+          onClose();
+        }
+      }}
+      onTouchEnd={(e) => {
+        // Tratamento especial para eventos de toque em iPad
+        if (e.target === e.currentTarget) {
+          e.preventDefault();
+          onClose();
+        }
+      }}
+      style={{ 
+        WebkitTapHighlightColor: 'transparent', // Remover highlight de toque em iPads
+      }}
     >
-      {" "}
       <motion.div
+        ref={menuRef}
         className="bg-white shadow-xl p-6 pt-5 w-full text-center mx-0 rounded-none border-b-2 border-[var(--color-accent)]/20 relative"
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        onClick={(e) => {
+          e.stopPropagation(); // Impede que cliques no menu fechem ele
+        }}
+        onTouchEnd={(e) => e.stopPropagation()} // Também para eventos de toque
       >
         {" "}
         <motion.ul
