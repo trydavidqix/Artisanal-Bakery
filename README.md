@@ -16,10 +16,10 @@ Uma aplicação web responsiva para uma padaria artesanal que apresenta seus pro
 - [Como Iniciar](#-como-iniciar)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Capturas de Tela](#-capturas-de-tela)
-  - [Aplicativo](#capturas-de-tela-do-aplicativo)
-  - [Interface](#interface-da-aplicação)
-  - [Produtos em Destaque](#produtos-em-destaque)
-  - [Depoimentos](#depoimentos)
+- [Aplicativo](#capturas-de-tela-do-aplicativo)
+- [Interface](#interface-da-aplicação)
+- [Produtos em Destaque](#produtos-em-destaque)
+- [Depoimentos](#depoimentos)
 - [Como Contribuir](#-como-contribuir)
 - [Licença](#-licença)
 
@@ -134,14 +134,6 @@ Contribuições são sempre bem-vindas!
 3. Commit suas alterações (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a Branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
-
-### Roadmap de Funcionalidades Futuras
-
-- [ ] Sistema de gerenciamento de pedidos online
-- [ ] Integração com API de pagamento
-- [ ] Área de administração para o proprietário da padaria
-- [ ] Sistema de avaliação de produtos
-- [ ] Modo escuro / Tema claro
 
 ## 📄 Licença
 
